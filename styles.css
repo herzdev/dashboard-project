@@ -1,0 +1,89 @@
+/**
+- 2 spalten
+- 2 reihen
+- navigation geht über beide zeilen
+- header startet bei spalte zwei und endet bei spalte zwei
+- body-content startet bei spalte zwei und endet bei spalte zwei + startet bei zeile zwei und endet bei zeile zwei
+*/
+
+body {
+    margin: 0;
+}
+
+.container {
+    
+    border: 2px solid black;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 5fr;
+    
+}
+
+.navigation {
+    border: 2px solid black;
+    grid-row: 1 / 3;
+    
+}
+
+.header {
+    border: 2px solid black;
+    grid-column: 2 / 3;
+    
+}
+
+.content {
+    border: 2px solid black;
+    /* 
+    - erstelle eigenen grid container
+    - spalten: 2
+    */
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+}
+
+/* 
+- projects von zeile 1-3
+- announcements von spalte 2-3
+- trending von spalte 2-3 und reihe 2-3
+*/
+
+.projects {
+    border: 2px solid black;
+    grid-row: 1 / 3;
+
+    /*
+    - project ein container mit 1 spalte u. 2 zeilen
+    - erste zeile 1fr, zweite zeile 4fr
+    - .cards eigener container mit 1 spalte, die die cards auto-fitten sollte
+    */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr;
+    
+}
+
+.cards {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    text-align: center;
+}
+
+.card {
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.announcements {
+    border: 2px solid black;
+    grid-column: 2 / 3;
+}
+
+.trending {
+    border: 2px solid black;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
